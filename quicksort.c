@@ -9,34 +9,39 @@ void	ft_swap(int *a, int *b)
 	*b = c;
 }
 
-int		partition(int *array, int low, int high)
+int		partition(int *array, int index_min, int size)
 {
 	int i;
 	int y;
-	int ref;
 
-	i = low - 1;
-	y = 0;
-	ref = array[high - 1];
-	while (y < high - 2)
+	if (index_min >= 0)
+		i = index_min - 1;
+	else
+		i = -1;
+	y = index_min;
+	while (y < size - 1)
 	{
-		if (array[y] < ref)
+		if (array[y] <= array[size - 1])
 		{
 			i++;
-			ft_swap(&array[i + 1], &array[i]);
+			ft_swap(&array[i], &array[y]);
 		}
 		y++;
 	}
-	ft_swap(&array[high - 1], &array[i + 1]);
-	return (i + 1);
+	i++;
+	ft_swap(&array[size - 1], &array[i]);
+	return (i);
 }
 
 
-void	ft_quicksort(int *array, int low, int high)
+void	ft_quicksort(int *array, int index_min, int size)
 {
 	int i;
+	static int nb_call;
 
-	i = partition(array, low, high);
-	ft_quicksort(array, i + 1, high);
-	ft_quicksort(array, low, i - 1);
+	i = partition(array, index_min, size);
+	if ((size - (i + 1)) > 1)
+		ft_quicksort(array, i + 1, size);
+	if (((1 + i) - index_min) > 1)
+		ft_quicksort(array, index_min, i);
 }
