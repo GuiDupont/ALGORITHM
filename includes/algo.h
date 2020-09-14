@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 #include <time.h>
-#include "libft.h"
+#include "../libft/libft.h"
 
 void	bzero_arrays(int **array, int nb_lines, int line_size);
 void	print_array(int *array, int size);

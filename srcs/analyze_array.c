@@ -1,4 +1,4 @@
-#include "algo.h"
+#include "../includes/algo.h"
 
 int		*count_occurences(int *array, int size, int max_value)
 {

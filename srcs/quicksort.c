@@ -1,4 +1,4 @@
-#include "algo.h"
+#include "../includes/algo.h"
 
 void	ft_swap(int *a, int *b)
 {
@@ -9,7 +9,7 @@ void	ft_swap(int *a, int *b)
 	*b = c;
 }
 
-int		partition(int *array, int index_min, int size)
+static int	partition(int *array, int index_min, int size)
 {
 	int i;
 	int y;
@@ -37,7 +37,6 @@ int		partition(int *array, int index_min, int size)
 void	ft_quicksort(int *array, int index_min, int size)
 {
 	int i;
-	static int nb_call;
 
 	i = partition(array, index_min, size);
 	if ((size - (i + 1)) > 1)

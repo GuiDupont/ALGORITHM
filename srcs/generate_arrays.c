@@ -1,4 +1,4 @@
-#include "algo.h"
+#include "../includes/algo.h"
 
 int		***create_arrays(int ***array, int nb_lines, int size_line)
 {

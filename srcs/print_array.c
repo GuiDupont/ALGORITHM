@@ -1,4 +1,4 @@
-#include "algo.h"
+#include "../includes/algo.h"
 
 void	print_array(int *array, int size)
 {
