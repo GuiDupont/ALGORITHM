@@ -1,14 +1,5 @@
 #include "../includes/algo.h"
 
-void	ft_swap(int *a, int *b)
-{
-	int c;
-
-	c = *a;
-	*a = *b;
-	*b = c;
-}
-
 static int	partition(int *array, int index_min, int size)
 {
 	int i;
