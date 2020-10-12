@@ -1,6 +1,4 @@
 #include "../includes/algo.h"
-#include <libexplain/open.h>
-
 
 void	sorting_algo_war(void (*algo_1)(int*, int, int), void (*algo_2)(int*, int))
 {
@@ -50,7 +48,6 @@ void	sorting_algo_war(void (*algo_1)(int*, int, int), void (*algo_2)(int*, int))
 			close(1);
 			dup2(fd_algo_2, 1);
 			printf("Insertion sort spent %lf seconds to sorte an array of %d elements\n", time_spent, nb_elem);
-			
 		}
 		dup2(back_up, 1);
 		close(back_up);
