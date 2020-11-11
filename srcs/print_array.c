@@ -8,7 +8,7 @@ void	print_array(int *array, int size)
 	while (i < size)
 	{
 		ft_putnbr(array[i]);
-		(i != size - 1) ? ft_putstr(", ") : ft_putchar('\0');
+		(i != size - 1) ? ft_putstr(", ") : ft_putchar('\n');
 		i++;
 	}
 }
@@ -21,7 +21,7 @@ void	print_arrays(int **arrays, int nb_lines, int line_size)
 	while (i < nb_lines)
 	{
 		print_array(arrays[i], line_size);
-		(i != nb_lines- 1) ?ft_putchar('\n') : ft_putchar('\0');
+		(i != nb_lines- 1) ? ft_putchar('\n') : ft_putchar('\0');
 		i++;
 	}
 }
