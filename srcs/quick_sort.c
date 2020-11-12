@@ -25,13 +25,18 @@ static int	partition(int *array, int index_min, int size)
 }
 
 
-void	ft_quicksort(int *array, int index_min, int size)
+void	ft_launcher(int *array, int index_min, int size)
 {
 	int i;
 
 	i = partition(array, index_min, size);
 	if ((size - (i + 1)) > 1)
-		ft_quicksort(array, i + 1, size);
+		ft_launcher(array, i + 1, size);
 	if (((1 + i) - index_min) > 1)
-		ft_quicksort(array, index_min, i);
+		ft_launcher(array, index_min, i);
+}
+
+void	ft_quicksort(int *array, int size)
+{
+	ft_launcher(array, 0, size);
 }

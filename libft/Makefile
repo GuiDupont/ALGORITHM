@@ -40,7 +40,7 @@ SRCS_LST	= \
 		libft/ft_atoi.c  libft/ft_itoa.c  libft/ft_itoa_u.c  libft/ft_u_to_x.c \
 		libft/ft_ul_to_p.c  libft/ft_abs_l.c  libft/ft_atof.c \
 		\
-		libft/ft_quicksort.c libft/ft_swap.c \
+		libft/ft_swap.c \
 		\
 		ft_printf/ft_printf.c \
 		ft_printf/valid_config.c \

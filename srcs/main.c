@@ -1,6 +1,6 @@
 #include "../includes/algo.h"
 
-void	sorting_algo_war(void (*algo_1)(int*, int, int), void (*algo_2)(int*, int))
+void	sorting_algo_war(t_algo algo1, t_algo algo2)
 {
 	int *array;
 	clock_t begin;
@@ -12,7 +12,7 @@ void	sorting_algo_war(void (*algo_1)(int*, int, int), void (*algo_2)(int*, int))
 
 	nb_elem = 20;
 	status = 0;
-	while (nb_elem <= 200)
+	while (nb_elem <= 200000)
 	{
 		srand(time (NULL));
 		if (!(array = malloc(sizeof(*array) * nb_elem)))
@@ -23,34 +23,34 @@ void	sorting_algo_war(void (*algo_1)(int*, int, int), void (*algo_2)(int*, int))
 		else if (pid_fork == 0)
 		{
 			begin = clock();
-			algo_1(array, 0, nb_elem);
+			algo1.function(array, nb_elem);
 			end = clock();
 			time_spent = (double)(end - begin) / (double)CLOCKS_PER_SEC;
-			printf("Quicksort spent %lf seconds to sorte an array of %d elements\n", time_spent, nb_elem);
+			printf("%s spent %lf seconds to sorte an array of %d elements\n", algo1.name, time_spent, nb_elem);
 			exit(1);
 		}
 		else
 		{
 			begin = clock();
-			algo_2(array, nb_elem);
+			algo2.function(array, nb_elem);
 			end = clock();
 			time_spent = (double)(end - begin) / (double)CLOCKS_PER_SEC;
 			waitpid(pid_fork, &status, 0);
-			printf("Fusion sort spent %lf seconds to sorte an array of %d elements\n", time_spent, nb_elem);
+			printf("%s spent %lf seconds to sorte an array of %d elements\n", algo2.name, time_spent, nb_elem);
 		}
 		nb_elem *= 10;
 		free(array);
 	}
 }
 
-int		choose_algo(void *algo_chosen[2], void *algo_table[NB_ALGOS])
+int		choose_algo(t_algo algo_chosen[2], t_algo algo_structs[NB_ALGOS + 1])
 {
 	char	*line;
 	char	**instructions;
 	int		instruct[2];
 
 
-	printf("Here is the list of algos\n1 : quick sort\n2 : insertion sort\n3 : fusion sort\nEnter the number of the 2 algo you want to make compete\nEnter \"0\" to quit\n");
+	printf("Here is the list of algos\n#1 : quick sort\n#2 : insertion sort\n#3 : fusion sort\nEnter the id of the 2 algo you want to make compete\nEnter \"0\" to quit\n");
 	get_next_line(0, &line);
 	if (line[0] == '0')
 	{
@@ -65,35 +65,38 @@ int		choose_algo(void *algo_chosen[2], void *algo_table[NB_ALGOS])
 	}
 	instruct[0] = ft_atoi(instructions[0]);
 	instruct[1] = ft_atoi(instructions[1]);
-	if (instruct[0] > NB_ALGOS || instruct[0] < 0 || instruct[1] > NB_ALGOS || instruct[1] < 0)
+	if (instruct[0] > NB_ALGOS || instruct[0] < 1 || instruct[1] > NB_ALGOS || instruct[1] < 1)
 	{
 		ft_free_split(instructions);
 		return (0);
 	}
-	algo_chosen[0] = algo_table[instruct[0]];
-	algo_chosen[1] = algo_table[instruct[1]];
+	algo_chosen[0] = algo_structs[instruct[0]];
+	algo_chosen[1] = algo_structs[instruct[1]];
 	return (1);
 }
 
-void	set_algo_table(void *algo_table[NB_ALGOS + 1])
+void	set_algo_table(t_algo algo_structs[NB_ALGOS + 1])
 {
-	algo_table[0] = NULL;
-	algo_table[1] = &ft_quicksort;
-	algo_table[2] = &insertion_sort;
-	algo_table[3] = &fusion_sort;
+	algo_structs[1].function = &ft_quicksort;
+	algo_structs[1].name = "Quick sort";
+	algo_structs[2].function = &insertion_sort;
+	algo_structs[2].name = "Insertion sort";
+	algo_structs[3].function = &fusion_sort;
+	algo_structs[3].name = "Fusion sort";
 }
 
 int main (int ac, char **av)
 {
 	(void)ac;
 	(void)av;
-	void *algo_chosen[2];
-	void *algo_table[NB_ALGOS + 1];
+	t_algo algo_chosen[2];
+	t_algo algo_structs[NB_ALGOS + 1];
 
-	set_algo_table(algo_table);
+	set_algo_table(algo_structs);
+	ft_putstr("salut\n");
 	while (1)
 	{
-		if (choose_algo(algo_chosen, algo_table))
+		if (choose_algo(algo_chosen, algo_structs))
 			sorting_algo_war(algo_chosen[0], algo_chosen[1]);
 	}
 	return (0);
