@@ -21,6 +21,7 @@ static int	partition(int *array, int index_min, int size)
 	}
 	i++;
 	ft_swap(&array[size - 1], &array[i]);
+	print_array(array, size);
 	return (i);
 }
 
@@ -38,5 +39,7 @@ void	ft_launcher(int *array, int index_min, int size)
 
 void	ft_quicksort(int *array, int size)
 {
+	print_array(array, size);
 	ft_launcher(array, 0, size);
+	print_array(array, size);
 }

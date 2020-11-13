@@ -12,7 +12,7 @@ void	sorting_algo_war(t_algo algo1, t_algo algo2)
 
 	nb_elem = 20;
 	status = 0;
-	while (nb_elem <= 200000)
+	while (nb_elem <= 20)
 	{
 		srand(time (NULL));
 		if (!(array = malloc(sizeof(*array) * nb_elem)))
