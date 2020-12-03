@@ -14,7 +14,7 @@ SRCS_LIST = 		analyze_array.c generate_arrays.c print_array.c \
 					ft_swap.c \
 					quick_sort.c \
 					insertion_sort.c \
-					fusion_sort.c \
+					merge_sort.c \
 					tools.c \
 					main.c
 

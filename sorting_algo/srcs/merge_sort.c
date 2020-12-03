@@ -1,6 +1,6 @@
 #include "../includes/algo.h"
 
-void	fusion_sort(int *array, int size)
+void	merge_sort(int *array, int size)
 {
 	int	*sub_array1;
 	int	*sub_array2;
@@ -10,8 +10,8 @@ void	fusion_sort(int *array, int size)
 		return ;
 	if (size > 2)
 	{
-		fusion_sort(array, size / 2);
-		fusion_sort(&array[size / 2], size - (size / 2));
+		merge_sort(array, size / 2);
+		merge_sort(&array[size / 2], size - (size / 2));
 	}
 	if (!(sub_array1 = malloc(sizeof(*sub_array1) * size / 2)))
 	 	return ;
@@ -23,11 +23,9 @@ void	fusion_sort(int *array, int size)
 	 {
 		if (j == size / 2)
 			array[i] = sub_array2[k++];
-		else if (k == size - size / 2)
+		else if (sub_array1[j] <= sub_array2[k] || k == size - size / 2)
 			array[i] = sub_array1[j++];
-		else if (sub_array1[j] <= sub_array2[k])
-			array[i] = sub_array1[j++];
-		else 
+		else
 			array[i] = sub_array2[k++];
 	}
 	free(sub_array1);

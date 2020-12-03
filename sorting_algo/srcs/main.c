@@ -9,14 +9,18 @@ void	sorting_algo_war(t_algo algo1, t_algo algo2)
 	pid_t pid_fork;
 	int status;
 	double time_spent;
+	//int fd;
 
-	nb_elem = 20;
+	nb_elem = 10000000;
 	status = 0;
-	while (nb_elem <= 20)
+	while (nb_elem <= 10000000)
 	{
 		srand(time (NULL));
 		if (!(array = malloc(sizeof(*array) * nb_elem)))
-			return ;
+		 	return ;
+		// fd = open("array.txt", O_RDONLY);
+		// put_txt_in_array(array, nb_elem, fd);
+		// close(fd);
 		randomize_array(array, nb_elem, nb_elem);
 		if ((pid_fork = fork()) == -1)
 			exit(1);
@@ -81,8 +85,8 @@ void	set_algo_table(t_algo algo_structs[NB_ALGOS + 1])
 	algo_structs[1].name = "Quick sort";
 	algo_structs[2].function = &insertion_sort;
 	algo_structs[2].name = "Insertion sort";
-	algo_structs[3].function = &fusion_sort;
-	algo_structs[3].name = "Fusion sort";
+	algo_structs[3].function = &merge_sort;
+	algo_structs[3].name = "Merge sort";
 }
 
 int main (int ac, char **av)
@@ -93,7 +97,6 @@ int main (int ac, char **av)
 	t_algo algo_structs[NB_ALGOS + 1];
 
 	set_algo_table(algo_structs);
-	ft_putstr("salut\n");
 	while (1)
 	{
 		if (choose_algo(algo_chosen, algo_structs))

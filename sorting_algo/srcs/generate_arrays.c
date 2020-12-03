@@ -48,6 +48,19 @@ void	randomize_array(int *array, int line_size, int max_value)
 	}
 }
 
+void	put_txt_in_array(int *array, int size, int fd)
+{
+	int		i = 0;
+	char	*line;
+
+	while (get_next_line(fd, &line) > 0 && i < size)
+	{
+		array[i] = ft_atoi(line);
+		free(line);
+		i++;
+	}
+}
+
 void	randomize_arrays(int **array, int nb_lines, int line_size, int max_value)
 {
 	int i;
