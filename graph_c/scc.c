@@ -8,6 +8,7 @@ void	file_to_graph(int fd, int **vertices, int reverse);
 void	ft_swap(int *a, int *b);
 void	ft_arraycpy(int *dst, int *src);
 
+
 void	DFS_time_labelling(int **vertices, char *visited, int vertice, int *order)
 {
 	int i;
@@ -43,29 +44,6 @@ void	DFS(int **vertices, char *visited, int vertice)
 	return ;
 }
 
-int		**change_label_graph(int **graph, int *ref)
-{
-	int i;
-	int y;
-	int **new_graph;
-
-	i = 1;
-	if (!(new_graph = malloc(sizeof(*new_graph) * 875715)))
-		return (0);
-	while (i < 10)
-	{
-		y = 0;
-		while (graph[i][y] != -1)
-		{
-			graph[i][y] = ref[graph[i][y]];
-			y++;
-		}
-		new_graph[ref[i]] = graph[i];
-		i++;
-	}
-	return (new_graph);
-}
-
 void	DFS_SCC(int **vertices, char *visited, int vertice, int *size)
 {
 	int i;
@@ -76,7 +54,9 @@ void	DFS_SCC(int **vertices, char *visited, int vertice, int *size)
 	while (vertices[vertice][i] != -1)
 	{
 		if (visited[vertices[vertice][i]] == '1')
+		{
 			DFS_SCC(vertices, visited, vertices[vertice][i], size);
+		}
 		i++;
 	}
 	return ;
@@ -94,8 +74,11 @@ void	DFS_loop(int **graph, char *not_visited)
 		{
 			size = 0;
 			DFS_SCC(graph, not_visited, i, &size);
-			ft_putnbr(size);
-			ft_putchar(' ');
+			if (size >= 211)
+			{
+				ft_putnbr(size);
+				ft_putchar(' ');
+			}
 		}
 		i--;
 	}
@@ -142,6 +125,28 @@ void	set_both_graph(int **normal_graph, int **reverse_graph, char *file)
 	close(fd);
 }
 
+int		**change_label_graph(int **graph, int *ref)
+{
+	int i;
+	int y;
+	int **new_graph;
+
+	i = 1;
+	if (!(new_graph = malloc(sizeof(*new_graph) * 875715)))
+		return (0);
+	while (i < 875715)
+	{
+		y = 0;
+		while (graph[i][y] != -1)
+		{
+			graph[i][y] = ref[graph[i][y]];
+			y++;
+		}
+		new_graph[ref[i]] = graph[i];
+		i++;
+	}
+	return (new_graph);
+}
 
 int		**time_labelling(int **reverse_graph, int **normal_graph, char *visited, int *order)
 {
@@ -164,30 +169,22 @@ int main(void)
 	int **reverse_graph;
 	int **time_label_graph;
 	int i;
-	int fd;
 	char *visited;
-	int time;
 	int *order;
 	char *not_visited;
 
 	malloc_graphs(&normal_graph, & reverse_graph, &visited, &order);
+	ft_putstr("graphs malloced\n");
 	set_both_graph(normal_graph, reverse_graph, "graph.txt");
+	ft_putstr("graphs filled\n");
 	time_label_graph = time_labelling(reverse_graph, normal_graph, visited, order);
-
-	//free(order);
-	//here visited char* is set to one for every instance;
+	ft_putstr("graphs time labelled\n");
 	not_visited = visited;
 	DFS_loop(time_label_graph, not_visited);
-	//DFS(normal_graph, visited, 9);
 	i = 0;
 	ft_putchar('\n');
 	while (i < 875715)
 	{
-		// if (i && i < 10)
-		// {
-		// 	ft_putnbr(order[i]);
-		// 	ft_putchar(' ');
-		// }
 		free(reverse_graph[i]);
 		free(normal_graph[i++]);
 	}
