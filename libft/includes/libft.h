@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 11:05:57 by user42            #+#    #+#             */
-/*   Updated: 2020/12/06 19:48:27 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/25 15:18:30 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ t_list			*ft_lstlast(t_list *lst);
 unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size);
 unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size);
 
+void			ft_arraycpy(int *dest, int *src, int size);
 void			ft_bzero(void *s, int size);
 void			ft_free_split(char **array);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
@@ -170,5 +171,21 @@ char			*ft_strcpy_char(char *dest, char *src, char c);
 int				increase_line_size(char **line, int size_sup);
 void			update_previous_buffer(char *str);
 int				get_next_line(int fd, char **line);
+
+
+/*
+** ALGO_LIB
+*/
+
+void			ft_arraycpy(int *dst, int *src, int len);
+void			ft_bzero_arrays(int **array, int nb_lines, int line_size);
+void			ft_insertionsort(int *array, int nb_elem);
+void			ft_mergesort(int *array, int size);
+void			ft_print_array(int *array, int size);
+void			ft_print_arrays(int **arrays, int nb_lines, int line_size);
+void			ft_put_txt_in_array(int *array, int size, int fd);
+void			ft_quicksort(int *array, int size);
+void			ft_randomize_array(int *array, int line_size, int max_value);
+void			ft_swap(int *a, int *b);
 
 #endif

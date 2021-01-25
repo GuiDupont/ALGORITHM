@@ -19,7 +19,7 @@ SRCS_LST	= \
 		\
 		libft/ft_calloc.c  libft/ft_split.c  libft/ft_substr.c  libft/ft_bzero.c \
 		libft/ft_free_split.c  libft/ft_array_length.c libft/ft_join2d.c \
-		libft/ft_print_split.c libft/ft_count_split.c\
+		libft/ft_print_split.c libft/ft_count_split.c libft/ft_arraycpy.c\
 		\
 		libft/ft_lstadd_back.c  libft/ft_lstclear.c  libft/ft_lstiter.c \
 		libft/ft_lstmap.c  libft/ft_lstsize.c  libft/ft_lstadd_front.c \
@@ -54,7 +54,12 @@ SRCS_LST	= \
 		ft_printf/tools_2.c \
 		ft_printf/tools.c \
 		\
-		gnl/get_next_line.c gnl/get_next_line_utils.c
+		gnl/get_next_line.c gnl/get_next_line_utils.c \
+		\
+		algo_lib/ft_arraycpy.c algo_lib/ft_print_array.c algo_lib/ft_bzero_arrays.c algo_lib/ft_print_arrays.c algo_lib/ft_randomize_array.c \
+		algo_lib/ft_malloc_arrays.c algo_lib/ft_put_txt_in_array.c \
+        algo_lib/ft_swap.c \
+        algo_lib/ft_quicksort.c algo_lib/ft_mergesort.c algo_lib/ft_insertionsort.c 
 
 SRCS= $(addprefix ${PATH_SRCS}/, ${SRCS_LST})
 
@@ -69,7 +74,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -fPIC -c $< -o $@ 
 
 so: $(NAME)
-	$(CC) -shared -o libft.so *.o ft_printf/*.o gnl/*.o
+	$(CC) -shared -o libft.so *.o ft_printf/*.o gnl/*.o algo_lib/*.o
  
 clean: 
 	rm -f $(OBJS)
