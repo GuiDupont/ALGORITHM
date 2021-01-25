@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 11:05:57 by user42            #+#    #+#             */
-/*   Updated: 2021/01/25 15:18:30 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/01/25 20:07:56 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,8 @@ typedef	struct	s_conf
 }				t_conf;
 
 int				ft_printf(char const *str, ...);
+
+long			ft_abs_l(long x);
 
 int				is_conf_valid(char const *str);
 void			initialize_conf(t_conf *conf);

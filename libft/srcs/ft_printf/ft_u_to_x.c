@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 17:01:39 by user42            #+#    #+#             */
-/*   Updated: 2020/05/07 13:52:14 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/01/25 20:05:33 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	u_to_x_len(unsigned int origin)
 	return (len);
 }
 
-char		*u_to_x(unsigned int nb, char c)
+char		*ft_u_to_x(unsigned int nb, char c)
 {
 	char	*ref;
 	char	*final;

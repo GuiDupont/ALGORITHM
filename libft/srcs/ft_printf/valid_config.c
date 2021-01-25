@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_config.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 22:19:25 by user42            #+#    #+#             */
-/*   Updated: 2020/11/11 23:07:42 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/25 20:04:54 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static	void	set_left_align(char const *str, t_conf *conf)
 		conf->precis = ft_strlen(conf->str);
 	if (conf->width < 0 && (conf->symb == 's' || conf->symb == 'c'))
 	{
-		conf->width = abs_l(conf->width);
+		conf->width = ft_abs_l(conf->width);
 		conf->l_align = 1;
 	}
 	if (conf->symb != 'p' && conf->symb != 's' && conf->symb != 'c' &&
 		conf->symb != '%' && conf->width < 0)
 	{
-		conf->width = abs_l(conf->width);
+		conf->width = ft_abs_l(conf->width);
 		conf->l_align = 1;
 	}
 	if (find_flag(str, '-') || conf->l_align)

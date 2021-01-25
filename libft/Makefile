@@ -37,8 +37,8 @@ SRCS_LST	= \
 		libft/ft_isdigit.c  libft/ft_isprint.c  libft/ft_tolower.c  libft/ft_toupper.c \
 		libft/ft_s_isdigit.c \
 		\
-		libft/ft_atoi.c  libft/ft_itoa.c  libft/ft_itoa_u.c  libft/ft_u_to_x.c \
-		libft/ft_ul_to_p.c  libft/ft_abs_l.c  libft/ft_atof.c \
+		libft/ft_atoi.c  libft/ft_itoa.c  libft/ft_itoa_u.c \
+		libft/ft_ul_to_p.c  libft/ft_atof.c \
 		\
 		libft/ft_swap.c \
 		\
@@ -48,6 +48,8 @@ SRCS_LST	= \
 		ft_printf/printing_s_c_percentage.c \
 		ft_printf/printing_d_i_u.c \
 		ft_printf/printing_p_x.c \
+		ft_printf/ft_u_to_x.c \
+		ft_printf/ft_abs_l.c \
 		ft_printf/print_single_char.c \
 		ft_printf/printing_tools.c \
 		ft_printf/tools_config.c \

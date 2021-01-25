@@ -6,7 +6,7 @@
 #    By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/25 11:29:54 by gdupont           #+#    #+#              #
-#    Updated: 2021/01/25 16:40:12 by gdupont          ###   ########.fr        #
+#    Updated: 2021/01/25 19:01:26 by gdupont          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,10 @@ FLAGS = -Wall -Wextra -Werror
 PATH_SRCS = srcs
 
 SRCS_LIST		= \
-				heap.c operations_heap.c tools_heap.c
+				heap.c \
+				operations_max_heap.c \
+				operations_min_heap.c \
+				tools_heap.c
 
 
 SRCS = $(addprefix ${PATH_SRCS}/, ${SRCS_LIST})

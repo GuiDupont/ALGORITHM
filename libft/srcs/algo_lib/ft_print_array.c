@@ -8,7 +8,7 @@ void	ft_print_array(int *array, int size)
 	while (i < size)
 	{
 		ft_putnbr(array[i]);
-		(i != size - 1) ? ft_putstr("") : ft_putchar('\n');
+		(i != size - 1) ? ft_putstr(" ; ") : ft_putchar('\n');
 		i++;
 	}
 }

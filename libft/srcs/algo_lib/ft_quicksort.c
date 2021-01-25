@@ -56,7 +56,8 @@ int		ft_quicksort_2(int *array, int size)
 
 void	ft_quicksort(int *array, int size)
 {
-	int total_comp;
+	//int total_comp;
 
-	total_comp = ft_quicksort_2(array, size);
+	//total_comp = ft_quicksort_2(array, size);
+	ft_quicksort_2(array, size);
 }
