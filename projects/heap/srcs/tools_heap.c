@@ -20,28 +20,17 @@ void	free_heap(t_heap *to_free)
 
 void	ft_print_max_heap(t_heap *heap)
 {
-	int i;
-
-	i = 0;
 	ft_printf("nb d'elem to print %d \n", heap->size);
-	while (i < heap->size)
-	{
+	while (heap->size > 0)
 		ft_printf("%d ; ", ft_pop_max_heap(heap));
-		i++;
-	}
+
 	ft_putchar('\n');
 }
 
 void	ft_print_min_heap(t_heap *heap)
 {
-	int i;
-
-	i = 0;
 	ft_printf("nb d'elem to print %d \n", heap->size);
-	while (i < heap->size)
-	{
+	while (heap->size > 0)
 		ft_printf(" %d ; ", ft_pop_min_heap(heap));
-		i++;
-	}
 	ft_putchar('\n');
 }

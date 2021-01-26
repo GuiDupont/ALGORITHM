@@ -13,7 +13,7 @@ void	ft_insert_heap_max(t_heap *heap, int number)
 	if (!heap)
 		return ;
 	array = heap->array;
-	heap->size += 1;
+	heap->size = (heap->size) + 1;
 	array[heap->size] = number;
 	i = heap->size;
 	while (i > 1 && array[i / 2] < array[i])
@@ -62,8 +62,6 @@ int		ft_pop_max_heap(t_heap *heap)
 	poped = array[heap->size];
 	heap->size -= 1;
 	i = 1;
-	left_child = 0;
-	right_child = 0;
 	while (i < heap->size)
 	{
 		left_child = ft_is_max_candidate(i, heap, 0);
