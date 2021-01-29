@@ -6,7 +6,7 @@
 /*   By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 11:05:57 by user42            #+#    #+#             */
-/*   Updated: 2021/01/25 20:07:56 by gdupont          ###   ########.fr       */
+/*   Updated: 2021/01/29 15:18:27 by gdupont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ int				ft_tolower(int c);
 int				ft_toupper(int c);
 
 long			abs_l(long i);
+long long		ft_atoll(const char *str);
+long long		ft_quicksort_ll(long long *array, int size);
 
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*d)(void *));
 t_list			*ft_lstnew(void *content);
@@ -98,6 +100,7 @@ void			ft_putendl(char const *s);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr(int n);
 void			ft_putnbr_fd(int n, int fd);
+void			ft_putnbr_ll(long long nb);
 void			ft_putstr(char const *c);
 void			ft_putstr_fd(char const *c, int fd);
 void			ft_strclr(char *s);
@@ -105,6 +108,7 @@ void			ft_strdel(char **as);
 void			ft_striter(char *s, void (*f)(char *));
 void			ft_striteri(char *s, void (*f)(unsigned int, char *));
 void			ft_swap(int *a, int *b);
+void			ft_swap_ll(long long *a, long long *b);
 void			print_array(int *array, int size);
 
 void			*ft_calloc(unsigned int nmemb, unsigned int size);

@@ -31,16 +31,16 @@ SRCS_LST	= \
 		\
 		libft/ft_putchar.c  libft/ft_putchar_fd.c  libft/ft_putendl.c \
 		libft/ft_putendl_fd.c  libft/ft_putnbr.c  libft/ft_putnbr_fd.c \
-		libft/ft_putstr.c  libft/ft_putstr_fd.c libft/print_array.c \
+		libft/ft_putstr.c  libft/ft_putstr_fd.c libft/print_array.c libft/ft_putnbr_ll.c \
 		\
 		libft/ft_isalnum.c  libft/ft_isalpha.c  libft/ft_isascii.c \
 		libft/ft_isdigit.c  libft/ft_isprint.c  libft/ft_tolower.c  libft/ft_toupper.c \
 		libft/ft_s_isdigit.c \
 		\
 		libft/ft_atoi.c  libft/ft_itoa.c  libft/ft_itoa_u.c \
-		libft/ft_ul_to_p.c  libft/ft_atof.c \
+		libft/ft_ul_to_p.c  libft/ft_atof.c libft/ft_atoll.c \
 		\
-		libft/ft_swap.c \
+		libft/ft_swap.c libft/ft_swap_ll.c\
 		\
 		ft_printf/ft_printf.c \
 		ft_printf/valid_config.c \
@@ -61,7 +61,7 @@ SRCS_LST	= \
 		algo_lib/ft_arraycpy.c algo_lib/ft_print_array.c algo_lib/ft_bzero_arrays.c algo_lib/ft_print_arrays.c algo_lib/ft_randomize_array.c \
 		algo_lib/ft_malloc_arrays.c algo_lib/ft_put_txt_in_array.c \
         algo_lib/ft_swap.c \
-        algo_lib/ft_quicksort.c algo_lib/ft_mergesort.c algo_lib/ft_insertionsort.c 
+        algo_lib/ft_quicksort.c algo_lib/ft_mergesort.c algo_lib/ft_insertionsort.c algo_lib/ft_quicksort_ll.c
 
 SRCS= $(addprefix ${PATH_SRCS}/, ${SRCS_LST})
 

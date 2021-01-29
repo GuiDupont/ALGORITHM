@@ -6,11 +6,11 @@
 #    By: gdupont <gdupont@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/25 11:29:54 by gdupont           #+#    #+#              #
-#    Updated: 2021/01/28 15:13:35 by gdupont          ###   ########.fr        #
+#    Updated: 2021/01/29 15:33:32 by gdupont          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = prob2sum
+NAME = prob2sum_sorting
 
 CC = gcc
 
@@ -18,16 +18,19 @@ FLAGS = -Wall -Wextra -Werror
 
 PATH_SRCS = srcs
 
-SRCS_LIST		= prob2sum.c tools.c
-
-
+SRCS_LIST = prob2sum_sorting.c
+					
 SRCS = $(addprefix ${PATH_SRCS}/, ${SRCS_LIST})
+
+ifeq ($(f), f)
+    CFLAGS += -fsanitize=address -g3
+endif
 
 OBJS = $(SRCS:.c=.o)
 
 INCLUDES = -I./includes
 
-LIBFT = ../../libft
+LIBFT = ../../../libft
 
 LFLAGS	= -L $(LIBFT) -lft
 
@@ -51,8 +54,4 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@make fclean -s -C $(LIBFT)
-
-re: fclean all
-
-.PHONY: all clean fclean re bonus
 

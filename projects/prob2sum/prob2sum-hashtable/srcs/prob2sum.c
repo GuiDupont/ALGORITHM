@@ -16,8 +16,8 @@ int		count_mathching_int_in_lst(t_list *list, long long lower_bound, long long u
 			list->content <= (void *)upper_bound)
 			{
 				t = nb + (long long)list->content + 10000;
-				ft_putnbr((int)t);
-				ft_putchar('\n');
+				//ft_putnbr((int)t);
+				//ft_putchar('\n');
 				visited[t] = '1';
 			}
 		list = list->next;
@@ -33,8 +33,8 @@ int		count_matching_int_in_table(t_list **table, long long nb, char *visited)
 	long long	upper_bound_mod;
 	int count = 0;
 
-	lower_bound = nb * -1 - 10000;
-	upper_bound = nb * -1 + 10000;
+	lower_bound = nb - 10000;
+	upper_bound = nb + 10000;
 	if (lower_bound > upper_bound)
 		ft_swap_ll(&lower_bound, &upper_bound);
 	lower_bound_mod = lower_bound % 10000000;
@@ -95,7 +95,7 @@ int main(int ac, char **av)
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
 		return (fd);
-	already_seen = malloc_hashtable(100000001);
+	already_seen = malloc_hashtable(10000000);
 	visited = malloc_t_visited(20001);
 	while (get_next_line(fd, &line) > 0)
 	{
